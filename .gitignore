@@ -103,6 +103,7 @@ xcuserdata
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
-**/xcuserdata/
+*.xcuserstate
+xcschememanagement.plist
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode,swiftpackagemanager
