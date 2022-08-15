@@ -8,6 +8,7 @@
 * Swift
 * MVVM
 * Firebase
+* Kingfisher
 
 ## 차후 사용해볼 라이브러리
 * Then
