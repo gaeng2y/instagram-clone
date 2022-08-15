@@ -38,6 +38,7 @@ class LoginController: UIViewController {
         btn.setHeight(50)
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
         btn.isEnabled = false
+        btn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return btn
     }()
     
@@ -76,6 +77,21 @@ class LoginController: UIViewController {
             viewModel.password = sender.text
         }
         updateForm()
+    }
+    
+    @objc
+    func handleLogin() {
+        guard let email = viewModel.email,
+              let password = viewModel.password else { return }
+        AuthService.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DBUG: Failed to register use \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: Successfully login user with firestore;;;")
+            self.dismiss(animated: true)
+        }
     }
     
     // MARK: - Helpers

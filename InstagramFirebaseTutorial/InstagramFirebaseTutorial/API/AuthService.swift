@@ -17,6 +17,12 @@ struct AuthCredentials {
 }
 
 struct AuthService {
+    typealias AuthDataResultCallback = (AuthDataResult?, Error?) -> Void
+    
+    static func logUserIn(withEmail email: String, password: String, completion: @escaping AuthDataResultCallback) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
     static func registerUser(withCredential credentails: AuthCredentials, completion: @escaping (Error?) -> Void) {
         ImageUploader.uploadImage(image: credentails.profileImage) { imageUrl in
             Auth.auth().createUser(withEmail: credentails.email, password: credentails.passwrod) { result, error in
