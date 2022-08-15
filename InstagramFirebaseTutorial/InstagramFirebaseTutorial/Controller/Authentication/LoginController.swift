@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol AuthenticationDelegate: AnyObject {
+    func authenticationDidComplete()
+}
+
 class LoginController: UIViewController {
     // MARK: - Properties
     private var viewModel = LoginViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImage: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white"))
@@ -64,8 +69,24 @@ class LoginController: UIViewController {
     
     // MARK: - Actions
     @objc
+    func handleLogin() {
+        guard let email = viewModel.email,
+              let password = viewModel.password else { return }
+        AuthService.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DBUG: Failed to register use \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: Successfully login user with firestore;;;")
+            self.delegate?.authenticationDidComplete()
+        }
+    }
+    
+    @objc
     func handleShowSignUp() {
         let register = RegistrationController()
+        register.delegate = delegate
         navigationController?.pushViewController(register, animated: true)
     }
     
@@ -77,21 +98,6 @@ class LoginController: UIViewController {
             viewModel.password = sender.text
         }
         updateForm()
-    }
-    
-    @objc
-    func handleLogin() {
-        guard let email = viewModel.email,
-              let password = viewModel.password else { return }
-        AuthService.logUserIn(withEmail: email, password: password) { result, error in
-            if let error = error {
-                print("DBUG: Failed to register use \(error.localizedDescription)")
-                return
-            }
-            
-            print("DEBUG: Successfully login user with firestore;;;")
-            self.dismiss(animated: true)
-        }
     }
     
     // MARK: - Helpers
