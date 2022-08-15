@@ -16,15 +16,14 @@ class ProfileHeader: UICollectionReusableView {
     
     private let profileImageView: UIImageView = {
        let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "venom-7")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
+        iv.backgroundColor = .lightGray
         return iv
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Eddie Brock"
         label.font = .boldSystemFont(ofSize: 14)
         return label
     }()
@@ -143,7 +142,7 @@ class ProfileHeader: UICollectionReusableView {
         guard let viewModel = viewModel else { return }
         
         nameLabel.text = viewModel.fullname
-        profileImageView
+        profileImageView.kf.setImage(with: viewModel.profileImageUrl)
 
         print("DEBUG: Configure header with user viewmodel")
     }
