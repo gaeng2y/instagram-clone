@@ -63,6 +63,8 @@
 		F0DBAE9B28AA5D8E0078F35A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAE9A28AA5D8E0078F35A /* UserService.swift */; };
 		F0DBAE9D28AA5DD30078F35A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAE9C28AA5DD30078F35A /* Constants.swift */; };
 		F0DBAE9F28AA5EEA0078F35A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAE9E28AA5EEA0078F35A /* User.swift */; };
+		F0DBAEA128AA61080078F35A /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAEA028AA61080078F35A /* ProfileHeaderViewModel.swift */; };
+		F0DBAEA428AA63180078F35A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F0DBAEA328AA63180078F35A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,7 @@
 		F0DBAE9A28AA5D8E0078F35A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F0DBAE9C28AA5DD30078F35A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F0DBAE9E28AA5EEA0078F35A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F0DBAEA028AA61080078F35A /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileHeaderViewModel.swift; path = InstagramFirebaseTutorial/Model/ProfileHeaderViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,7 @@
 				F0DBAE7E28AA43300078F35A /* FirebaseInAppMessaging-Beta in Frameworks */,
 				F0DBAE7028AA43300078F35A /* FirebaseDatabaseSwift in Frameworks */,
 				F0DBAE7A28AA43300078F35A /* FirebaseFunctions in Frameworks */,
+				F0DBAEA428AA63180078F35A /* Kingfisher in Frameworks */,
 				F0DBAE9028AA43300078F35A /* FirebaseStorageCombine-Community in Frameworks */,
 				F0DBAE8A28AA43300078F35A /* FirebaseRemoteConfig in Frameworks */,
 				F0DBAE6628AA43300078F35A /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -251,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				F0DBAE5428AA39A00078F35A /* AuthenticationViewModel.swift */,
+				F0DBAEA028AA61080078F35A /* ProfileHeaderViewModel.swift */,
 			);
 			name = ViewModel;
 			path = "New Group1/ViewModel";
@@ -350,6 +355,7 @@
 				F0DBAE8B28AA43300078F35A /* FirebaseRemoteConfigSwift */,
 				F0DBAE8D28AA43300078F35A /* FirebaseStorage */,
 				F0DBAE8F28AA43300078F35A /* FirebaseStorageCombine-Community */,
+				F0DBAEA328AA63180078F35A /* Kingfisher */,
 			);
 			productName = InstagramFirebaseTutorial;
 			productReference = F0DBAE0328AA116E0078F35A /* InstagramFirebaseTutorial.app */;
@@ -425,6 +431,7 @@
 			mainGroup = F0DBADFA28AA116E0078F35A;
 			packageReferences = (
 				F0DBAE5A28AA43300078F35A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F0DBAEA228AA63180078F35A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F0DBAE0428AA116E0078F35A /* Products */;
 			projectDirPath = "";
@@ -482,6 +489,7 @@
 				F0DBAE4228AA14CC0078F35A /* SearchController.swift in Sources */,
 				F0DBAE9F28AA5EEA0078F35A /* User.swift in Sources */,
 				F0DBAE0B28AA116E0078F35A /* ViewController.swift in Sources */,
+				F0DBAEA128AA61080078F35A /* ProfileHeaderViewModel.swift in Sources */,
 				F0DBAE9D28AA5DD30078F35A /* Constants.swift in Sources */,
 				F0DBAE4828AA14DE0078F35A /* ProfileController.swift in Sources */,
 				F0DBAE0728AA116E0078F35A /* AppDelegate.swift in Sources */,
@@ -843,6 +851,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		F0DBAEA228AA63180078F35A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -980,6 +996,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F0DBAE5A28AA43300078F35A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		F0DBAEA328AA63180078F35A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0DBAEA228AA63180078F35A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileHeader: UICollectionReusableView {
     // MARK: - Properties
+    var viewModel: ProfileHeaderViewModel? {
+        didSet { configure() }
+    }
+    
     private let profileImageView: UIImageView = {
        let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "venom-7")
@@ -134,6 +139,15 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     // MARK: - Helpers
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        
+        nameLabel.text = viewModel.fullname
+        profileImageView
+
+        print("DEBUG: Configure header with user viewmodel")
+    }
+    
     func attributedStatTest(value: Int, label: String) -> NSAttributedString {
         let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: label,
