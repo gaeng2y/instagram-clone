@@ -10,6 +10,7 @@ import UIKit
 class RegistrationController: UIViewController {
     // MARK: - Properties
     private var viewModel = RegistrationViewModel()
+    private var profileImage : UIImage?
     
     private let plushPhotoButton: UIButton = {
         let btn = UIButton(type: .system)
@@ -43,6 +44,7 @@ class RegistrationController: UIViewController {
         btn.setHeight(50)
         btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
         btn.isEnabled = false
+        btn.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         return btn
     }()
     
@@ -93,6 +95,28 @@ class RegistrationController: UIViewController {
         print("DEBUG: Show photo library here...")
     }
     
+    @objc
+    func handleSignUp() {
+        guard let email = viewModel.email,
+              let password = viewModel.password,
+              let fullname = viewModel.fullname,
+              let username = viewModel.username?.lowercased(),
+              let profileImage = self.profileImage else { return }
+        let credential = AuthCredentials(email: email,
+                                         passwrod: password,
+                                         fullname: fullname,
+                                         username: username,
+                                         profileImage: profileImage)
+        AuthService.registerUser(withCredential: credential) { error in
+            if let error = error {
+                print("DBUG: Failed to register use \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: Successfully registered user with firestore;;;")
+        }
+    }
+    
     // MARK: - Helpers
     func configureUI () {
         configureGradientLayer()
@@ -135,6 +159,7 @@ extension RegistrationController: FormViewModel {
 extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = didFinishPickingMediaWithInfo[.editedImage] as? UIImage else { return }
+        profileImage = selectedImage
         plushPhotoButton.layer.cornerRadius = plushPhotoButton.frame.width / 2
         plushPhotoButton.layer.masksToBounds = true
         plushPhotoButton.layer.borderColor = UIColor.white.cgColor
