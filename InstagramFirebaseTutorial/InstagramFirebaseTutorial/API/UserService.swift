@@ -17,4 +17,19 @@ struct UserService {
             completion(user)
         }
     }
+    
+    static func fetchUsers(completion: @escaping ([User]) -> Void) {
+        CollectionUsers.getDocuments { snapshot, error in
+            guard let snapshot = snapshot else {
+                return
+            }
+//            snapshot.documents.forEach { document in
+//                print("DEBUG: \(document.data())")
+//            }
+            
+            let users = snapshot.documents.map { User($0.data()) }
+
+            completion(users)
+        }
+    }
 }
