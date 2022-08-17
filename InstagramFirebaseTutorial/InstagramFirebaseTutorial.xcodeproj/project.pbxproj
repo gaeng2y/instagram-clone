@@ -66,6 +66,7 @@
 		F0DBAEAE28ABC5AE0078F35A /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAEAC28ABC5AE0078F35A /* ProfileHeaderViewModel.swift */; };
 		F0DBAEAF28ABC5AE0078F35A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAEAD28ABC5AE0078F35A /* AuthenticationViewModel.swift */; };
 		F0DBAEB128ABC5BF0078F35A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAEB028ABC5BF0078F35A /* UserCell.swift */; };
+		F0DBAEB328AD31CB0078F35A /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBAEB228AD31CB0078F35A /* UserCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		F0DBAEAC28ABC5AE0078F35A /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		F0DBAEAD28ABC5AE0078F35A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		F0DBAEB028ABC5BF0078F35A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		F0DBAEB228AD31CB0078F35A /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 			children = (
 				F0DBAEAC28ABC5AE0078F35A /* ProfileHeaderViewModel.swift */,
 				F0DBAEAD28ABC5AE0078F35A /* AuthenticationViewModel.swift */,
+				F0DBAEB228AD31CB0078F35A /* UserCellViewModel.swift */,
 			);
 			name = ViewModel;
 			path = InstagramFirebaseTutorial/ViewModel;
@@ -496,6 +499,7 @@
 				F0DBAE0B28AA116E0078F35A /* ViewController.swift in Sources */,
 				F0DBAE9D28AA5DD30078F35A /* Constants.swift in Sources */,
 				F0DBAE4828AA14DE0078F35A /* ProfileController.swift in Sources */,
+				F0DBAEB328AD31CB0078F35A /* UserCellViewModel.swift in Sources */,
 				F0DBAE0728AA116E0078F35A /* AppDelegate.swift in Sources */,
 				F0DBAE3E28AA13D00078F35A /* MainTabController.swift in Sources */,
 				F0DBAE4C28AA25B40078F35A /* Extensions.swift in Sources */,

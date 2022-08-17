@@ -9,10 +9,9 @@ import UIKit
 
 class UserCell: UITableViewCell {
     // MARK: - Properties
-    var user: User? {
+    var viewModel: UserCellViewModel? {
         didSet {
-            usernameLabel.text = user?.username
-            fullnameLabel.text = user?.fullname
+            configure()
         }
     }
     
@@ -33,7 +32,7 @@ class UserCell: UITableViewCell {
     }()
     
     private let fullnameLabel: UILabel = {
-       let label = UILabel()
+       let label = UILabel() 
         label.font = .systemFont(ofSize: 16)
         label.text = "Eddie Borck"
         label.textColor = .lightGray
@@ -61,5 +60,14 @@ class UserCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK:- Helpers
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        
+        profileImageView.kf.setImage(with: viewModel.profileImageUrl)
+        usernameLabel.text = viewModel.username
+        fullnameLabel.text = viewModel.fullname
     }
 }
